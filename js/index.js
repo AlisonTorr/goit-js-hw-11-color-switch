@@ -19,7 +19,16 @@ const randomIntegerFromInterval = (min, max) => {
 };
 
 const colorIdx = randomIntegerFromInterval(colors[0], colors.length);
+const colorAdding = () => {
+  bodyRef.style.color = colors[colorIdx];
+};
+const bodyBcg = setInterval(colorAdding(), 1000);
 
 const onStart = () => {
-  setInterval((bodyRef.style.color = colors[colorIdx]), 1000);
+  bodyBcg();
+};
+
+const onStop = () => {
+  bodyRef.style.color = null;
+  clearInterval(bodyBcg);
 };
