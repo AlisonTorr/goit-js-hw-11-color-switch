@@ -11,9 +11,6 @@ const bodyRef = document.querySelector("body");
 const startBtn = document.querySelector("#start-btn");
 const stopBtn = document.querySelector("#stop-btn");
 
-startBtn.addEventListener("click", onStart);
-stopBtn.addEventListener("click", onStop);
-
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -36,3 +33,6 @@ const onStop = () => {
   bodyRef.style.backgroundColor = null;
   clearInterval(intervalid);
 };
+
+startBtn.addEventListener("click", onStart);
+stopBtn.addEventListener("click", onStop);
