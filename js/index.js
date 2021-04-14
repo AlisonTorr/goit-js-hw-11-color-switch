@@ -21,12 +21,13 @@ const colorAdding = () => {
   bodyRef.style.backgroundColor = colors[colorIdx];
 };
 
-const intervalid = setInterval(colorAdding, 1000);
 let isOnStart = false;
 
 const onStart = () => {
-  colorAdding();
+  const intervalid = setInterval(colorAdding, 1000);
   isOnStart = isOnStart ? false : true;
+
+  return intervalid;
 };
 
 const onStop = () => {
