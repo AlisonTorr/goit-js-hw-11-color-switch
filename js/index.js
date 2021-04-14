@@ -18,17 +18,21 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const colorIdx = randomIntegerFromInterval(colors[0], colors.length);
 const colorAdding = () => {
-  bodyRef.style.color = colors[colorIdx];
+  const colorIdx = randomIntegerFromInterval(0, colors.length);
+  console.log(colorIdx);
+  bodyRef.style.backgroundColor = colors[colorIdx];
 };
-const bodyBcg = setInterval(colorAdding(), 1000);
+
+const intervalid = setInterval(colorAdding, 1000);
+let isOnStart = false;
 
 const onStart = () => {
-  bodyBcg();
+  colorAdding();
+  isOnStart = isOnStart ? false : true;
 };
 
 const onStop = () => {
-  bodyRef.style.color = null;
-  clearInterval(bodyBcg);
+  bodyRef.style.backgroundColor = null;
+  clearInterval(intervalid);
 };
