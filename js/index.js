@@ -21,11 +21,12 @@ const colorAdding = () => {
   bodyRef.style.backgroundColor = colors[colorIdx];
 };
 
-let isOnStart = false;
+// let isOnStart = false;
 
 const onStart = () => {
   const intervalid = setInterval(colorAdding, 1000);
-  isOnStart = isOnStart ? false : true;
+  // isOnStart = true;
+  startBtn.disabled = true;
 
   return intervalid;
 };
@@ -33,6 +34,7 @@ const onStart = () => {
 const onStop = () => {
   bodyRef.style.backgroundColor = null;
   clearInterval(intervalid);
+  startBtn.disabled = false;
 };
 
 startBtn.addEventListener("click", onStart);
