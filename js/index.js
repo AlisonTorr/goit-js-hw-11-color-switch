@@ -20,17 +20,19 @@ const colorAdding = () => {
   bodyRef.style.backgroundColor = colors[colorIdx];
 };
 
+let intervalid;
+
 const onStart = () => {
-  const intervalid = setInterval(colorAdding, 1000);
   startBtn.disabled = true;
+  intervalid = setInterval(colorAdding, 1000);
 
   return intervalid;
 };
 
 const onStop = () => {
-  bodyRef.style.backgroundColor = colors[0];
-  clearInterval(intervalid);
   startBtn.disabled = false;
+  clearInterval(intervalid);
+  bodyRef.style.backgroundColor = colors[0];
 };
 
 startBtn.addEventListener("click", onStart);
