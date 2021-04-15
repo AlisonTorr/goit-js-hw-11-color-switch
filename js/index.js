@@ -17,22 +17,18 @@ const randomIntegerFromInterval = (min, max) => {
 
 const colorAdding = () => {
   const colorIdx = randomIntegerFromInterval(0, colors.length);
-  console.log(colorIdx);
   bodyRef.style.backgroundColor = colors[colorIdx];
 };
 
-// let isOnStart = false;
-
 const onStart = () => {
   const intervalid = setInterval(colorAdding, 1000);
-  // isOnStart = true;
   startBtn.disabled = true;
 
   return intervalid;
 };
 
 const onStop = () => {
-  bodyRef.style.backgroundColor = null;
+  bodyRef.style.backgroundColor = colors[0];
   clearInterval(intervalid);
   startBtn.disabled = false;
 };
